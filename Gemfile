@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+
+gem 'cloudinary'
+
 gem 'bootsnap', require: false
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
