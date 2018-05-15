@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pools do
-    resources :bookings, except: [:edit, :update, :show]
+    resources :bookings, except: [:edit, :update, :show, :new]
 end
   devise_for :users
 
