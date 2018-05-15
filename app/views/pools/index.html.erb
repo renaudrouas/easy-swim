@@ -1,1 +1,14 @@
 <h1>Pages#Index</h1>
+
+<div class="row">
+  <% @pools.each do |pool|%>
+
+  <div class="col-sm-4">
+
+    <div class="card">
+      <%= link_to pool.address, pool_path(pool) %>
+    </div>
+  </div>
+
+  <% end %>
+</div>

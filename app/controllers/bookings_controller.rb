@@ -7,8 +7,6 @@ class BookingsController < ApplicationController
 end
 
 
-
-
 def new
   @pool = Pool.find(params[:pool_id])
   @booking = Booking.new
@@ -36,13 +34,6 @@ private
 def booking_params
   params.require(:booking).permit(:date)
 end
-
-
-
-
-
-
-
 
 
 end
