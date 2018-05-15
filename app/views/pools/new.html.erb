@@ -1,1 +1,9 @@
 <h1>Pages#New</h1>
+
+<h1>Add your pool</h1>
+<div class="form">
+  <%= simple_form_for @pool do |f| %>
+    <%= f.input :description, placeholder: 'Pool Address', hint: 'No special characters.' %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
