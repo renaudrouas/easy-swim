@@ -2,15 +2,26 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <img src="images/logo.png" alt="logo">
+    <%= image_tag "logo.png" %>
+   <!--  <img src="images/logo.png" alt="logo"> -->
   </a>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>
+  </form>
+
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Ajouter votre piscine</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">S'inscrire</a>
+
+     <!-- if user_signed_in?
+     <!-- Links when logged in -->
+   <!--   link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" -->
+     <!-- link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" -->
+     <!-- link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" -->
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
