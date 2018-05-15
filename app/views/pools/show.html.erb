@@ -1,7 +1,26 @@
 <h1>Pages#Show</h1>
 
+<h1> <%= @pool.title %> détails : </h1>
+
+<%= @pool.address %>
+<%= @pool.dimensions %>
+<%= @pool.description %>
+<p> <%= @pool.price %>€ </p>
 
 
-<%= link_to "Add Pool", new_cocktail_dose_path(params[:id]) %> <br />
 
-<%= link_to "Back to cocktail", cocktails_path %>
+<p>
+  <strong>Name:</strong>
+  <%= @pool.title %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @pool.user.First_Name%> <%=@pool.user.Last_Name%>
+  <%= @pool.user.email %>
+  <%= @pool.user.Phone_Number %>
+</p>
+
+<%= link_to 'Edit', edit_pool_path(@pool) %> |
+
+<%= link_to 'Back', pools_path %>
