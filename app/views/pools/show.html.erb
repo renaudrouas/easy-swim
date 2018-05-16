@@ -16,10 +16,23 @@
 
 <p>
   <strong>User:</strong>
-  <%= @pool.user.First_Name%> <%=@pool.user.Last_Name%>
-  <%= @pool.user.email %>
-  <%= @pool.user.Phone_Number %>
+  <%= current_user.First_Name%> <%=current_user.Last_Name%>
+  <%= current_user.email %>
+  <%= current_user.Phone_Number %>
 </p>
+
+
+<!-- integration du booking dans la view show de pool -->
+<div >
+  <% if @pool.user != current_user %>
+  <%= simple_form_for [@pool, @booking] do |f| %>
+  <%= f.input :date %>
+  <%= f.submit class: "btn btn-medium" %>
+  <% end %>
+  <% end %>
+</div>
+
+
 
 <%= link_to 'Edit', edit_pool_path(@pool) %> |
 

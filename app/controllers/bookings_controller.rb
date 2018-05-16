@@ -1,33 +1,53 @@
 class BookingsController < ApplicationController
 
 
- def index
-  @pool = Pool.find(params[:pool_id])
-  @booking = Booking.all
-end
-
-
-def new
-  @pool = Pool.find(params[:pool_id])
-  @booking = Booking.new
-end
-
-def create
-  @pool = Pool.find(params[:pool_id])
-  @booking = Booking.new(booking_params)
-  @booking.pool = @pool
-  if @booking.save
-    redirect_to pool_path(@pool)
-  else
-    render :new
+  def index
+    if user_signed_in?
+      @bookings = current_user.bookings
+    else
+      redirect_to user_session_path
+    end
   end
-end
 
-def destroy
-  @pool = Pool.find(params[:id])
-  @booking.destroy
-  redirect_to pool_path(@booking.pool)
-end
+
+  def confirm_status
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: "Confirmed")
+    if @booking.save
+      redirect_to my_properties_path
+    else
+      flash[:alert] = "Could not confirm"
+      render my_properties_path
+    end
+  end
+
+  def decline_status
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: "Declined")
+    if @booking.save
+      redirect_to my_properties_path
+    else
+      flash[:alert] = "Could not confirm"
+      render my_properties_path
+    end
+  end
+
+#   def create
+#     if user_signed_in?
+#       @pool = Pool.find(params[:pool_id])
+#       @booking = Booking.new(booking_params)
+#       @booking.pool = @pool
+#       @booking.user = current_user
+#     # @booking.status = "Pending"
+#     if @booking.save
+#       redirect_to pools_path
+#     else
+#       render "pools/show"
+#     end
+#   else
+#     redirect_to user_session_path
+#   end
+# end
 
 private
 
