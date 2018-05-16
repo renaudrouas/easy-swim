@@ -32,22 +32,22 @@ class BookingsController < ApplicationController
     end
   end
 
-#   def create
-#     if user_signed_in?
-#       @pool = Pool.find(params[:pool_id])
-#       @booking = Booking.new(booking_params)
-#       @booking.pool = @pool
-#       @booking.user = current_user
-#     # @booking.status = "Pending"
-#     if @booking.save
-#       redirect_to pools_path
-#     else
-#       render "pools/show"
-#     end
-#   else
-#     redirect_to user_session_path
-#   end
-# end
+  def create
+    if user_signed_in?
+      @pool = Pool.find(params[:pool_id])
+      @booking = Booking.new(booking_params)
+      @booking.pool = @pool
+      @booking.user = current_user
+    # @booking.status = "Pending"
+    if @booking.save
+      redirect_to pools_path
+    else
+      render "pools/show"
+    end
+  else
+    redirect_to user_session_path
+  end
+end
 
 private
 
