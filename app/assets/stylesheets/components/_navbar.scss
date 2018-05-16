@@ -8,6 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 2000;
+  width: 100%;
+}
+
+.transparent-navbar {
+  background: transparent;
 }
 
 /* Logo */
@@ -74,4 +81,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.form-control {
+  border-radius: 5%;
 }

@@ -62,6 +62,7 @@ class PoolsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def pool_params
-      params.require(:pool).permit(:dimensions, :description, :pictures, :price, :address,:title)
+
+      params.require(:pool).permit(:dimensions, :description, :pictures, :price, :address, :title)
     end
 end
