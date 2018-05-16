@@ -16,9 +16,10 @@
 
 <p>
   <strong>User:</strong>
-  <%= current_user.First_Name%> <%=current_user.Last_Name%>
-  <%= current_user.email %>
-  <%= current_user.Phone_Number %>
+
+  <%= @pool.user.first_name%> <%=@pool.user.last_name%>
+  <%= @pool.user.email %>
+  <%= @pool.user.phone_number %>
 </p>
 
 
