@@ -1,16 +1,16 @@
-<%= simple_form_for(@pool) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs form-design">
-    <%= f.input :title, placeholder: 'Pool Title', hint: 'No special characters.' %>
-    <%= f.input :address, placeholder: 'Pool Address', hint: 'No special characters.' %>
-    <%= f.input :dimensions, placeholder: 'Pool dimensions', hint: 'No special characters.' %>
-    <%= f.input :description, placeholder: 'Pool description', hint: 'No special characters.' %>
-    <%= f.input :price, placeholder: 'Pool price', hint: 'No special characters.' %>
-  </div>
+  <%= simple_form_for(@pool) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-actions btn-medium">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-inputs form-color">
+      <%= f.input :title, placeholder: 'Pool Title', hint: 'No special characters.',input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :address, placeholder: 'Pool Address', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' }%>
+      <%= f.input :dimensions, placeholder: 'Pool dimensions', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :description, placeholder: 'Pool description', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :price, placeholder: 'Pool price', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    </div>
+    <div class="form-actions btn-medium my-button">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
