@@ -13,7 +13,7 @@
     <% @pools.each do |pool| %>
       <tr>
         <td><%= pool.title %></td>
-        <td><%= pool.user %></td>
+        <td><%= pool.address %></td>
         <td><%= link_to 'Show', pool %></td>
         <td><%= link_to 'Edit', edit_pool_path(pool) %></td>
         <td><%= link_to 'Destroy', pool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
