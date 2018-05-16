@@ -7,7 +7,6 @@ class PoolsController < ApplicationController
     # # @restaurants = Restaurant.all
     # @restaurants = policy_scope(Restaurant)
     @pools = Pool.all
-
   end
 
   # GET /restaurants/1
