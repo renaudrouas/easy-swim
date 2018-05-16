@@ -20,6 +20,18 @@
     overflow: hidden;
     background: #000;
 }
+.text {
+  position: fixed;
+  top: calc(70px + 40vh);
+  z-index: 1000;
+  text-align: center;
+  h1 {
+    color: white !important;
+    width: 100vh;
+  }
+}
+
+
 .video-container .poster img {
     width: 100%;
     bottom: 0;
@@ -33,7 +45,7 @@
 }
 .video-container video {
     position: absolute;
-    z-index: 0;
+    z-index: 10;
     bottom: 0;
 }
 .video-container video.fillWidth {

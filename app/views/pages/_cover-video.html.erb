@@ -1,12 +1,12 @@
+<div class="text">
+  <h1>Piscines</h1>
+</div>
 <div class="homepage-hero-module">
-    <div class="video-container">
-        <div class="filter"></div>
-        <video autoplay loop class="fillWidth">
-            <source src="/media/Orange-Ripple.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-            <source src="Orange-Ripple.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-        </video>
-        <div class="poster hidde">
-            <img src="../../images/Orange-Ripple.jpg" alt="">
-        </div>
-    </div>
+  <div class="video-container">
+      <div class="filter"></div>
+      <video autoplay loop class="fillWidth">
+          <source  src="<%= video_url("Orange-Ripple.mp4") %>" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+          <source src="<%= video_url("Orange-Ripple.webm") %>" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
+  </div>
 </div>
