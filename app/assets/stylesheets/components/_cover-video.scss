@@ -51,3 +51,34 @@
 .video-container video.fillWidth {
     width: 100%;
 }
+
+.banner-absolute-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.banner {
+  color: white;
+  text-align: center;
+  background-size: cover !important;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  padding: 10px;
+  padding-top: 35px;
+}
+
+.banner-content {
+  width: 100%;
+}
+
+.fillWidth {
+    border-right: none;
+    border-left: none;
+    top: 0px;
+    width: 100%;
+    margin-top: -70px;
+    object-fit: cover;
+}
