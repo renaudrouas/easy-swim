@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs form-design">
     <%= f.input :title, placeholder: 'Pool Title', hint: 'No special characters.' %>
     <%= f.input :address, placeholder: 'Pool Address', hint: 'No special characters.' %>
     <%= f.input :dimensions, placeholder: 'Pool dimensions', hint: 'No special characters.' %>
@@ -10,7 +10,7 @@
     <%= f.input :price, placeholder: 'Pool price', hint: 'No special characters.' %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions btn-medium">
     <%= f.button :submit %>
   </div>
 <% end %>
