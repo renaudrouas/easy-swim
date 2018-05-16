@@ -14,11 +14,12 @@ class PoolsController < ApplicationController
     @pools = Pool.where.not(latitude: nil, longitude: nil)
     @markers = @pools.map do |pool|
       {
-        lat: flat.latitude,
-        lng: flat.longitude#,
+        lat: pool.latitude,
+        lng: pool.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     @booking = Booking.new
+    end
   end
 
   # GET /restaurants/new
