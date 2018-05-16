@@ -56,7 +56,7 @@ class PoolsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pool
       @pool = Pool.find(params[:id])
-      authorize @pool
+      # authorize @pool
     end
 
     # Only allow a trusted parameter "white list" through.
