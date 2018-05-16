@@ -25,6 +25,7 @@
 <!-- integration du booking dans la view show de pool -->
 <div >
   <% if @pool.user != current_user %>
+  <h1> Réserver la piscine : </h1>
   <%= simple_form_for [@pool, @booking] do |f| %>
   <%= f.input :date %>
   <%= f.submit class: "btn btn-medium" %>
