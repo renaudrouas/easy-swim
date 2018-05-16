@@ -12,6 +12,7 @@ class PoolsController < ApplicationController
 
   # GET /restaurants/1
   def show
+    @booking = Booking.new
   end
 
   # GET /restaurants/new
@@ -61,6 +62,7 @@ class PoolsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def pool_params
+
       params.require(:pool).permit(:dimensions, :description, :pictures, :price, :address, :title)
     end
 end
