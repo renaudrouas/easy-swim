@@ -4,7 +4,7 @@ ruby '2.4.3'
 gem 'devise'
 
 gem 'cloudinary'
-
+gem "geocoder"
 gem 'bootsnap', require: false
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
