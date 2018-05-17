@@ -24,6 +24,11 @@
         <% if current_user.photo? %>
         <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li class="fa">
+            Signed in as :
+            <%= current_user.email %>
+          </li>
+
           <li>
             <%= link_to "#" do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
