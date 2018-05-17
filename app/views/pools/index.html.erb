@@ -1,40 +1,75 @@
-<h1>Les piscines</h1>
-  <div class="container">
-    <div class="wrapper">
-      <div class="center-form">
-        <%= form_tag pools_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a pool"
-        %>
-        <% end %>
-      </div>
-    </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>User</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @pools.each do |pool| %>
-        <tr>
-          <td><%= pool.title %></td>
-          <td><%= pool.address %></td>
-          <td><%= link_to 'Show', pool %></td>
-          <td><%= link_to 'Edit', edit_pool_path(pool) %></td>
-          <td><%= link_to 'Destroy', pool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+<!--  Search bar -->
+<div class="container">
+  <div class="wrapper">
+    <div class="center-form">
+      <%= form_tag pools_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a pool"
+      %>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
+<!--  Search bar -->
 
-  <br>
+  <div class="container">
+    <div class= "row">
+      <div class="col-sm-7">
+        <div class="cards-container">
+          <div class= "row">
+            <% @pools.each do |pool| %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="card-container">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="card" style="background-image: url('<%= image_path "Orange-Ripple.jpg" %>');">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-5">
+                    <div class="card-price text-center">
+                      <h2><%= link_to pool.price, pool_path(pool) %>€</h2>
+                      <p>Par personne <br>(demi-journée)</p>
+                    </div>
+                  </div>
+                  <div class="col-xs-7">
+                    <div class="card-description text-center">
+                      <h2><%= link_to pool.title, pool_path(pool) %></h2>
 
-  <%= link_to 'New Pool', new_pool_path %>
-</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="map" class="col-sm-5"></div>
+    </div>
+  </div>
+
+
+
+
+ <script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 52.5206, lng: 13.4098},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+    </script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+        </script>
+
+
+
+

@@ -1,13 +1,4 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "new";
-
-.center-form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 7vh;
-  margin-top: 5vh;
-}
+@import "pools-index";
