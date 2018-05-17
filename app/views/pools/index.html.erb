@@ -7,27 +7,38 @@
       <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Find a pool"
-      %>
-      <% end %>
+        placeholder: "Find a pool"
+        %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<!--  Search bar -->
+    <!--  Search bar -->
 
-  <div class="container">
-    <div class= "row">
-      <div class="col-sm-7">
-        <div class="cards-container">
-          <div class= "row">
-            <% @pools.each do |pool| %>
-            <div class="col-xs-12 col-sm-6">
-              <div class="card-container">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <div class="card" style="background-image: url('<%= image_path "Orange-Ripple.jpg" %>');">
+    <div class="container">
+      <div class= "row">
+        <div class="col-sm-7">
+          <div class="cards-container">
+            <div class= "row">
+              <% @pools.each do |pool| %>
+              <div class="col-xs-12 col-sm-6">
+                <div class="card-container">
+
+
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="card"
+
+                      <% if pool.photo? %>
+                      style="background-image: ('<%= image_tag pool.photo.url %>);"
+                      <% else %>
+                      style="background-image: url('<%= image_path "Orange-Ripple.jpg" %>');"
+                      <% end %>
+
+                      >
                     </div>
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="col-xs-5">
                     <div class="card-price text-center">
@@ -71,7 +82,7 @@
         </script>
 
 
- -->
+      -->
 
 
 <!-- <br>
@@ -82,8 +93,8 @@
   data-markers="<%= @markers.to_json %>"
 ></div>
 
-  <br> -->
+<br> -->
 
 
-  <%= link_to 'New Pool', new_pool_path %>
+<%= link_to 'New Pool', new_pool_path %>
 </div>

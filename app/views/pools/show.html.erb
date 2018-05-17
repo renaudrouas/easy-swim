@@ -12,7 +12,12 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <%= cl_image_tag "https://kitt.lewagon.com/placeholder/cities/berlin"%>
+            <% if @pool.photo.url %>
+          <%= image_tag @pool.photo.url %>
+          <% else %>
+          <%= cl_image_tag "https://kitt.lewagon.com/placeholder/cities/berlin"%>
+          <% end %>
+
           </div>
 
           <!-- <div class="item">
