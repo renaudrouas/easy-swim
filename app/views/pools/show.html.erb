@@ -1,41 +1,43 @@
-<h1>Pages#Show</h1>
+<div class="main-container">
+  <div class="card-container">
+    <div class="col-xs-6 col-md-6">
+      <h1>Description Piscine :  </h1>
+          <%= @pool.address %>
+          <%= @pool.dimensions %>
+          <%= @pool.description %>
+          <p> <%= @pool.price %>€ </p>
+          <p>
+            <strong>Name:</strong>
+            <%= @pool.title %>
+          </p>
+          <p>
+            <strong>User:</strong>
+            <%= @pool.user.first_name%> <%=@pool.user.last_name%>
+            <%= @pool.user.email %>
+            <%= @pool.user.phone_number %>
+          </p>
+      <!-- </div> -->
+    </div>
+  </div>
+    <!-- integration du booking dans la view show de pool -->
+    <!--  <div class="row"> -->
+      <div class=" card-container">
+        <div class="col-xs-6 col-md-6">
+<!--           <div > -->
+            <% if @pool.user != current_user %>
+            <h1> Réserver la piscine : </h1>
+            <%= simple_form_for [@pool, @booking] do |f| %>
+            <%= f.input :date %>
+            <%= f.submit class: "btn btn-medium" %>
+            <% end %>
+            <% end %>
+         <!--  </div> -->
+        </div>
+      </div>
+    </div>
 
-<h1> <%= @pool.title %> détails : </h1>
-
-<%= @pool.address %>
-<%= @pool.dimensions %>
-<%= @pool.description %>
-<p> <%= @pool.price %>€ </p>
 
 
+    <%= link_to 'Edit', edit_pool_path(@pool) %> |
 
-<p>
-  <strong>Name:</strong>
-  <%= @pool.title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-
-  <%= @pool.user.first_name%> <%=@pool.user.last_name%>
-  <%= @pool.user.email %>
-  <%= @pool.user.phone_number %>
-</p>
-
-
-<!-- integration du booking dans la view show de pool -->
-<div >
-  <% if @pool.user != current_user %>
-  <h1> Réserver la piscine : </h1>
-  <%= simple_form_for [@pool, @booking] do |f| %>
-  <%= f.input :date %>
-  <%= f.submit class: "btn btn-medium" %>
-  <% end %>
-  <% end %>
-</div>
-
-
-
-<%= link_to 'Edit', edit_pool_path(@pool) %> |
-
-<%= link_to 'Back', pools_path %>
+    <%= link_to 'Back', pools_path %>
