@@ -7,39 +7,39 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# require 'faker'
-# p "destroying db ...."
+require 'faker'
+p "destroying db ...."
 
-# Pool.destroy_all
-# User.destroy_all
-
-
-# p "... db destroyed"
-
-# p "seeding Database"
-
-# User.create!(
-#   first_name: "Tonton",
-#   last_name: "David",
-#   email: "tonton.david@gmail.com",
-#   password: "password",
-#   address: 'Marseille',
-#   phone_number: '+33 567 435 41 52',
-# )
+Pool.destroy_all
+User.destroy_all
 
 
-# 10.times do
-#  pool = Pool.create!(
-#    title: Faker::Lorem.word,
-#    description: Faker::Lorem.sentence,
-#    dimensions: "5x3",
-#    address: Faker::Address.city,
-#    price: Faker::Number.between(30, 400),
-#    user: User.last
-#   )
-# end
+p "... db destroyed"
 
-# p "Database Seed !"
+p "seeding Database"
+
+User.create!(
+  first_name: "Tonton",
+  last_name: "David",
+  email: "tonton.david@gmail.com",
+  password: "password",
+  address: 'Marseille',
+  phone_number: '+33 567 435 41 52',
+)
+
+
+10.times do
+ pool = Pool.create!(
+   title: Faker::Lorem.word,
+   description: Faker::Lorem.sentence,
+   dimensions: "5x3",
+   address: Faker::Address.city,
+   price: Faker::Number.between(30, 400),
+   user: User.last
+  )
+end
+
+p "Database Seed !"
 #  Booking.create!(
 #   date: Faker::Date.between(Date.today, Date.today+1000),
 #   # status: "Pending",
