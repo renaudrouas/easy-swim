@@ -6,17 +6,32 @@ class PoolsController < ApplicationController
   def index
     # # @restaurants = Restaurant.all
     # @restaurants = policy_scope(Restaurant)
+
+    @pools = Pool.all
+    @pools = Pool.where.not(latitude: nil, longitude: nil)
+    @markers = @pools.map do |pool|
+      {
+        lat: pool.latitude,
+        lng: pool.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+
     # @pools = Pool.all
-    if params[:query].present?
-      @pools = Pool.search_by_title_and_address_and_description(params[:query])
-    else
-      @pools = Pool.all
+#     if params[:query].present?
+#       @pools = Pool.search_by_title_and_address_and_description(params[:query])
+#     else
+#       @pools = Pool.all
     end
   end
 
 
   # GET /restaurants/1
   def show
+    @markers = [{
+        lat: @pool.latitude,
+        lng: @pool.longitude
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }]
     @booking = Booking.new
   end
 
