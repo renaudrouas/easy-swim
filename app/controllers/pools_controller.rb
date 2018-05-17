@@ -6,8 +6,14 @@ class PoolsController < ApplicationController
   def index
     # # @restaurants = Restaurant.all
     # @restaurants = policy_scope(Restaurant)
-    @pools = Pool.all
+    # @pools = Pool.all
+    if params[:query].present?
+      @pools = Pool.search_by_title_and_address_and_description(params[:query])
+    else
+      @pools = Pool.all
+    end
   end
+
 
   # GET /restaurants/1
   def show
