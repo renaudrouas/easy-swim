@@ -3,7 +3,7 @@ ruby '2.4.3'
 
 gem 'faker'
 gem 'devise'
-
+gem 'pg_search'
 gem 'cloudinary'
 
 gem 'bootsnap', require: false
