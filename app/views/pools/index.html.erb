@@ -1,16 +1,16 @@
 <h1>Les piscines</h1>
-<div class="container">
-  <div class="wrapper">
-    <div class="center-form">
-    <%= form_tag pools_path, method: :get do %>
-      <%= text_field_tag :query,
+  <div class="container">
+    <div class="wrapper">
+      <div class="center-form">
+        <%= form_tag pools_path, method: :get do %>
+        <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find a pool"
-      %>
-    <% end %>
+        %>
+        <% end %>
+      </div>
     </div>
-  </div>
 
   <table>
     <thead>
