@@ -48,13 +48,13 @@
           </div>
         </div>
       </div>
-      <div id="map" class="col-sm-5"></div>
+      <div id="map" class="col-sm-5" data-markers="<%= @markers.to_json %>"></div>
     </div>
   </div>
 
 
 
-
+<!--
  <script>
       function initMap() {
         // Create a map object and specify the DOM element for display.
@@ -71,10 +71,10 @@
         </script>
 
 
+ -->
 
 
-
-<br>
+<!-- <br>
 <div
   id="map"
   style="width: 100%;
@@ -82,7 +82,7 @@
   data-markers="<%= @markers.to_json %>"
 ></div>
 
-  <br>
+  <br> -->
 
 
   <%= link_to 'New Pool', new_pool_path %>
