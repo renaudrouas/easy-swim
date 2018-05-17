@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
 
   def index
+    @pool = @pool = Pool.find(params[:pool_id])
     if user_signed_in?
       @bookings = current_user.bookings
     else

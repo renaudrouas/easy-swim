@@ -6,7 +6,7 @@
   <% @bookings.each do |booking| %>
     <div class="product">
         <div class='product-body'>
-          <h3><%= link_to booking.pool_id, flat_path(booking.pool_id) %></h3>
+          <h3><%= link_to booking.pool_id, pool_path(booking.pool_id) %></h3>
           <p><%= @pool.title %></p>
           <p><%= booking.date %></p>
           <p>Booking status : <%= booking.status%> at <%= booking.user.last_name %></p>
