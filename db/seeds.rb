@@ -35,7 +35,8 @@ User.create!(
    dimensions: "5x3",
    address: Faker::Address.city,
    price: Faker::Number.between(30, 400),
-   user: User.last
+   user: User.last,
+   photo: "http://res.cloudinary.com/renaudrouas/image/upload/v1526557085/pool.jpg"
   )
 end
 

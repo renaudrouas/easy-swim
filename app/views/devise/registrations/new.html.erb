@@ -12,6 +12,8 @@
         <%= f.input :last_name, required: true, autofocus: false %>
         <%= f.input :address, required: true, autofocus: false %>
         <%= f.input :phone_number, required: true, autofocus: false %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
       </div>
       <div class="form-actions btn-medium">
          <%= f.button :submit, "Sign up" %>
@@ -19,7 +21,7 @@
    <% end %>
  </div>
 </div>
-   
+
 
 
 
