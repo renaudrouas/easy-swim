@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
-
+before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
+    @bookings = policy_scope(Booking)
     if user_signed_in?
       @bookings = current_user.bookings
     else
@@ -36,8 +37,10 @@ class BookingsController < ApplicationController
     if user_signed_in?
       @pool = Pool.find(params[:pool_id])
       @booking = Booking.new(booking_params)
+      authorize @booking
       @booking.pool = @pool
       @booking.user = current_user
+
     # @booking.status = "Pending"
     if @booking.save
       redirect_to pools_path
@@ -50,6 +53,12 @@ class BookingsController < ApplicationController
 end
 
 private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_booking
+      authorize @booking
+    end
+
 
 def booking_params
   params.require(:booking).permit(:date)
