@@ -1,4 +1,4 @@
-class PoolPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -17,5 +17,6 @@ class PoolPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
 
 end
