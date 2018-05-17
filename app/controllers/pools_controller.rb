@@ -7,10 +7,6 @@ class PoolsController < ApplicationController
     # # @restaurants = Restaurant.all
     # @restaurants = policy_scope(Restaurant)
     @pools = Pool.all
-  end
-
-  # GET /restaurants/1
-  def show
     @pools = Pool.where.not(latitude: nil, longitude: nil)
     @markers = @pools.map do |pool|
       {
@@ -18,8 +14,17 @@ class PoolsController < ApplicationController
         lng: pool.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
-    @booking = Booking.new
     end
+  end
+
+  # GET /restaurants/1
+  def show
+    @markers = [{
+        lat: @pool.latitude,
+        lng: @pool.longitude
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }]
+    @booking = Booking.new
   end
 
   # GET /restaurants/new
