@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+        <!-- Indicators -->
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -13,20 +13,21 @@
         <div class="carousel-inner">
           <div class="item active">
             <% if @pool.photo.url %>
-          <%= image_tag @pool.photo.url %>
+            <%= image_tag @pool.photo.url %>
+          </div>
+
+          <div class="item">
+            <%= image_tag @pool.photo.url %>
+          </div>
+
+          <div class="item">
+            <%= image_tag @pool.photo.url %>
+          </div>
+
           <% else %>
           <%= cl_image_tag "https://kitt.lewagon.com/placeholder/cities/berlin"%>
           <% end %>
 
-          </div>
-
-          <!-- <div class="item">
-            <%= cl_image_tag @pool.photo, height: 300, width: 100, crop: :fill %>
-          </div>
-
-          <div class="item">
-            <%= cl_image_tag @pool.photo, height: 300, width: 100, crop: :fill %>
-          </div> -->
         </div>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -44,55 +45,60 @@
     <div class="col-xs-6 col-md-6 test">
       <div class="card-container">
         <h1>Description Piscine:</h1>
-          <p>
-            <strong>Address:</strong>
-              <%= @pool.address %>
-          </p>
-          <p>
-            <strong>Dimensions:</strong>
-              <%= @pool.dimensions %>
-          </p>
-          <p>
-            <strong>Description:</strong>
-              <%= @pool.description %>
-          </p>
-          <p>
-            <strong>Price:</strong>
-              <%= @pool.price %>€
-          </p>
-          <p>
-            <strong>Name:</strong>
-              <%= @pool.title %>
-          </p>
-          <p>
-            <strong>Owner:</strong>
-              <%= @pool.user.first_name%> <%=@pool.user.last_name%>
-          </p>
-          <p>
-            <strong> Mail: </strong>
-              <%= @pool.user.email %>
-          </p>
-          <p>
-            <strong> Phone Number:</strong>
-              <%= @pool.user.phone_number %>
-          </p>
+        <p>
+          <strong>Address:</strong>
+          <%= @pool.address %>
+        </p>
+        <p>
+          <strong>Dimensions:</strong>
+          <%= @pool.dimensions %>
+        </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @pool.description %>
+        </p>
+        <p>
+          <strong>Price:</strong>
+          <%= @pool.price %>€
+        </p>
+        <p>
+          <strong>Name:</strong>
+          <%= @pool.title %>
+        </p>
+        <p>
+          <strong>Owner:</strong>
+          <%= @pool.user.first_name%> <%=@pool.user.last_name%>
+        </p>
+        <p>
+          <strong> Mail: </strong>
+          <%= @pool.user.email %>
+        </p>
+        <p>
+          <strong> Phone Number:</strong>
+          <%= @pool.user.phone_number %>
+        </p>
       </div>
     </div>
     <div class="col-xs-6 col-md-6 test">
       <div class="card-container">
         <% if @pool.user != current_user %>
-          <h1> Réserver la piscine : </h1>
-          <%= simple_form_for [@pool, @booking] do |f| %>
-            <%= f.input :date %>
-            <%= f.submit class: "btn btn-medium" %>
-          <% end %>
+        <h1> Réserver la piscine : </h1>
+        <%= simple_form_for [@pool, @booking] do |f| %>
+        <%= f.input :date %>
+        <%= f.submit class: "btn btn-medium" %>
         <% end %>
-          <div class="btn btn-medium">
-              <%= link_to 'Edit', edit_pool_path(@pool) %>
-          </div>
-          <div class="btn btn-medium">
-              <%= link_to 'Back', pools_path %>
-          </div>
+        <% end %>
+        <div class="btn btn-medium">
+          <%= link_to 'Edit', edit_pool_path(@pool) %>
+        </div>
+        <div class="btn btn-medium">
+          <%= link_to 'Delete',pool_path(@pool),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="btn btn-medium">
+          <%= link_to 'Back', pools_path %>
+        </div>
       </div>
     </div>
   </div>
