@@ -1,7 +1,7 @@
 <h1>Pages#Show</h1>
 
 <h1> <%= @pool.title %> détails : </h1>
-
+<%= cl_image_tag @pool.photo, height: 300, width: 400, crop: :fill %>
 <%= @pool.address %>
 <%= @pool.dimensions %>
 <%= @pool.description %>
