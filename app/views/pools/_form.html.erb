@@ -9,6 +9,8 @@
       <%= f.input :dimensions, placeholder: 'Pool dimensions', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :description, placeholder: 'Pool description', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :price, placeholder: 'Pool price', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
     </div>
     <div class="form-actions btn-medium my-button">
       <%= f.button :submit %>
