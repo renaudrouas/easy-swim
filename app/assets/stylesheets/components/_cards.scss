@@ -1,0 +1,86 @@
+// .card {
+//   height: 175px;
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   background-size: cover !important;
+//   background-position: center;
+//   color: white;
+//   position: relative;
+//   margin: 20px;
+//   min-width: 50vw;
+// }
+.cards-container {
+
+}
+.card {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  // margin: 15px 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  font-size: 25px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  flex: 1 1 auto;
+
+}
+
+.card-container {
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 15px;
+  &:hover {
+    transform: scale(1.01);
+    // zoom: 1.1;
+  }
+
+  // img {
+  //   transition: all .2s ease-in-out;
+  // }
+  // img:hover {
+  //   transform: scale(.2);
+  // }
+}
+
+
+.card-description {
+  a:hover {
+    opacity: 0.4;
+    text-decoration: none;
+  }
+  h2 {
+  font-size: 20px;
+  color: #3498db;
+  }
+
+  p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+  }
+
+}
+
+// .card-link:hover {
+//   opacity: 0.1;
+// }
+
+.card-price {
+  h2{
+    font-size: 20px;
+    color: #3498db;
+  }
+  p {
+    font-size: 10px;
+    opacity: 0.7;
+    font-weight: lighter;
+     line-height: 2vh;
+  }
+  a:hover {
+    opacity: 0.4;
+    text-decoration: none;
+  }
+}
