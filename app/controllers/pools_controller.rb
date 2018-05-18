@@ -10,7 +10,7 @@ class PoolsController < ApplicationController
       @pools = Pool.all
     end
 
-    # @pools = @pools.where.not(latitude: nil, longitude: nil)
+    @pools = @pools.where.not(latitude: nil, longitude: nil)
     @pools = policy_scope(@pools)
     @markers = @pools.map do |pool|
       {
