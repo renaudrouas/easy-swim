@@ -3,33 +3,15 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    #@pool = Pool.find(params[:pool_id])
-    # if current_user == @pool.user_id
-    #   @pool = Pool.where(user_id: current_user)
-    #   @pool.each do |pool|
-    #   @pool_id = pool.pool_id
-    #   @bookings = Booking.find(pool_id: @pool_id)
-    #   end
-    # else
+
     @reservations = []
-    @pools_reserved = []
-      Pool.where(user_id: current_user).each do |pool|
+    Pool.where(user_id: current_user).each do |pool|
       pool_ids = pool.id
       Booking.where(pool_id: pool_ids).each do |booking|
-      @user = User.find(booking.user_id)
-        if booking.user_id != nil
-          @reservations << booking
-          @pools_reserved << pool
-        end
+        @reservations << booking
       end
-      end
-    @pools_booked = []
-      @bookings = Booking.where(user_id: current_user)
-      @bookings.each do |booking|
-        owner_id = Pool.find(booking.pool_id).user_id
-        @owner = User.find(owner_id)
-        @pools_booked << Pool.find(booking.pool_id)
-      end
+    end
+    @my_reservations = current_user.bookings
 
     @bookings = policy_scope(Booking)
     if user_signed_in?
@@ -37,20 +19,6 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
     else
       redirect_to user_session_path
     end
-
-    # -------------------------------------------------------------------------
-    #   @bookings = Booking.where(user_id: current_user)
-    # # end
-    # #raise
-    # @bookings = policy_scope(Booking)
-    # if user_signed_in?
-    #   @bookings = current_user.bookings
-    # else
-    #   redirect_to user_session_path
-    # end
-    # -------------------------------------------------------------------------
-
-  #Booking.joins(:users).where("posts.created_at < ?", Time.now)
 
 
 
