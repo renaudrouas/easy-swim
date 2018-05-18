@@ -4,16 +4,14 @@ class PoolsController < ApplicationController
 
   # GET /restaurants
   def index
-    # # @restaurants = Restaurant.all
-    @pools = policy_scope(Pool)
-
     if params[:query].present?
       @pools = Pool.search_by_address(params[:query])
     else
       @pools = Pool.all
     end
-    @pools = Pool.all
-    @pools = Pool.where.not(latitude: nil, longitude: nil)
+
+    # @pools = @pools.where.not(latitude: nil, longitude: nil)
+    @pools = policy_scope(@pools)
     @markers = @pools.map do |pool|
       {
         lat: pool.latitude,
