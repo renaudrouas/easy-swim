@@ -2,36 +2,44 @@ class BookingsController < ApplicationController
 
 
   def index
-    @pool = @pool = Pool.find(params[:pool_id])
-    if user_signed_in?
-      @bookings = current_user.bookings
-    else
-      redirect_to user_session_path
-    end
+    #@pool = Pool.find(params[:pool_id])
+    # if current_user == @pool.user_id
+    #   @pool = Pool.where(user_id: current_user)
+    #   @pool.each do |pool|
+    #   @pool_id = pool.pool_id
+    #   @bookings = Booking.find(pool_id: @pool_id)
+    #   end
+    # else
+      @bookings = Booking.where(user_id: current_user)
+    # end
+    #raise
+
+  #Booking.joins(:users).where("posts.created_at < ?", Time.now)
+
   end
 
 
-  def confirm_status
-    @booking = Booking.find(params[:booking_id])
-    @booking.update(status: "Confirmed")
-    if @booking.save
-      redirect_to my_properties_path
-    else
-      flash[:alert] = "Could not confirm"
-      render my_properties_path
-    end
-  end
+  # def confirm_status
+  #   @booking = Booking.find(params[:booking_id])
+  #   @booking.update(status: "Confirmed")
+  #   if @booking.save
+  #     redirect_to my_properties_path
+  #   else
+  #     flash[:alert] = "Could not confirm"
+  #     render my_properties_path
+  #   end
+  # end
 
-  def decline_status
-    @booking = Booking.find(params[:booking_id])
-    @booking.update(status: "Declined")
-    if @booking.save
-      redirect_to my_properties_path
-    else
-      flash[:alert] = "Could not confirm"
-      render my_properties_path
-    end
-  end
+  # def decline_status
+  #   @booking = Booking.find(params[:booking_id])
+  #   @booking.update(status: "Declined")
+  #   if @booking.save
+  #     redirect_to my_properties_path
+  #   else
+  #     flash[:alert] = "Could not confirm"
+  #     render my_properties_path
+  #   end
+  # end
 
   def create
     if user_signed_in?
@@ -41,12 +49,13 @@ class BookingsController < ApplicationController
       @booking.user = current_user
     # @booking.status = "Pending"
     if @booking.save
-      redirect_to pools_path
+      redirect_to pool_bookings_path
     else
       render "pools/show"
+      # redirect_to user_session_path
     end
-  else
-    redirect_to user_session_path
+  # else
+  #   redirect_to user_session_path
   end
 end
 

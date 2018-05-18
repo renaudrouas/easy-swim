@@ -7,6 +7,11 @@ class PoolsController < ApplicationController
     # # @restaurants = Restaurant.all
     # @restaurants = policy_scope(Restaurant)
 
+    if params[:query].present?
+      @pools = Pool.search_by_address(params[:query])
+    else
+      @pools = Pool.all
+    end
     @pools = Pool.all
     @pools = Pool.where.not(latitude: nil, longitude: nil)
     @markers = @pools.map do |pool|
@@ -15,12 +20,6 @@ class PoolsController < ApplicationController
         lng: pool.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
-
-    # @pools = Pool.all
-#     if params[:query].present?
-#       @pools = Pool.search_by_title_and_address_and_description(params[:query])
-#     else
-#       @pools = Pool.all
     end
   end
 
