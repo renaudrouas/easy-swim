@@ -2,15 +2,57 @@
 
 
 <div class="container">
-  <div
+   <%if @pools_booked == [] %>
+    <p>You don't have any reservation </p>
+    <% end %>
   <% @bookings.each do |booking| %>
+  <% @pools_booked.each do |pool| %>
+
     <div class="product">
         <div class='product-body'>
-          <p><%= booking %></p>
+          <p>Your restervations as user</p>
+          <p>Date: </p>
           <p><%= booking.date %></p>
-          <p><%=booking.pool_id %></p>
-           <p><%=booking.user_id %></p>
+          <p>Pool name: </p>
+          <p><%=pool.title%></p>
+          <p>Pool dimensions: </p>
+          <p><%=pool.dimensions%></p>
+          <p>Price: </p>
+          <p><%=pool.price%></p>
+          <p>Address: </p>
+          <p><%=pool.address%></p>
+          <p>The Owner: </p>
+          <p><%=@owner.first_name+ " " + @owner.last_name %></p>
+        </div>
+
     </div>
-  </div>
+  <% end %>
+  <% end %>
+  <%if @pools_reserved == [] %>
+    <p>You don't have any pool booked </p>
     <% end %>
+  <% @reservations.each do |booking| %>
+  <% @pools_reserved.each do |pool| %>
+
+    <div class="product">
+        <div class='product-body'>
+          <p>You reservation as owner </p>
+          <p>Date:</p>
+          <p><%= booking.date %></p>
+          <p>Pool name:</p>
+          <p><%=pool.title%></p>
+          <p>Pool dimensions:</p>
+          <p><%=pool.dimensions%></p>
+          <p>Price:</p>
+          <p><%=pool.price%></p>
+          <p>Address:</p>
+          <p><%=pool.address%></p>
+          <p>Your Guest: </p>
+          <p><%=@user.first_name + " " + @user.last_name %></p>
+        </div>
+
+    </div>
+  <% end %>
+  <% end %>
+
 </div>
