@@ -23,11 +23,9 @@
           <div class="item">
             <%= image_tag @pool.photo.url %>
           </div>
-
           <% else %>
           <%= cl_image_tag "https://kitt.lewagon.com/placeholder/cities/berlin"%>
           <% end %>
-
         </div>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -87,7 +85,10 @@
         <%= f.input :date %>
         <%= f.submit class: "btn btn-medium" %>
         <% end %>
-        <% end %>
+        <div class="btn btn-medium">
+          <%= link_to 'Back', pools_path %>
+        </div>
+        <% else %>
         <div class="btn btn-medium">
           <%= link_to 'Edit', edit_pool_path(@pool) %>
         </div>
@@ -99,6 +100,7 @@
         <div class="btn btn-medium">
           <%= link_to 'Back', pools_path %>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
