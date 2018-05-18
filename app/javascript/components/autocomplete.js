@@ -1,12 +1,18 @@
 function autocomplete() {
   document.addEventListener("DOMContentLoaded", function() {
     var poolAddress = document.getElementById('pool_address');
+    var poolAddressSearch = document.getElementById('pool_address_search');
 
     if (poolAddress) {
       var autocomplete = new google.maps.places.Autocomplete(poolAddress, { types: [ 'geocode' ] });
       google.maps.event.addDomListener(poolAddress, 'keydown', function(e) {
         if (e.key === "Enter") {
           e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+    if (poolAddressSearch) {
+      var autocomplete = new google.maps.places.Autocomplete(poolAddress, { types: [ 'geocode' ] });
         }
       });
     }
@@ -30,8 +36,7 @@ function autocomplete() {
         }
       });
     }
-  });
-}
+
 
 export { autocomplete };
 

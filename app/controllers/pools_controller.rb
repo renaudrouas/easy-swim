@@ -5,7 +5,7 @@ class PoolsController < ApplicationController
   # GET /restaurants
   def index
     if params[:query].present?
-      @pools = policy_scope(Pool.search_by_title_and_address(params[:query]))
+      @pools = policy_scope(Pool.search_by_title_and_address_and_description(params[:query]))
       # @lands_geo = Land.search_by_title_and_address(params[:query]).where.not(latitude: nil, longitude: nil)
       @pools_geo = @pools.where.not(latitude: nil, longitude: nil)
     else
