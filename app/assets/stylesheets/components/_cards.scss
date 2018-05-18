@@ -47,6 +47,12 @@
 
 
 .card-description {
+  a {
+    color: $black;
+    font: $body-font;
+    font-weight: lighter;
+    font-size: 3vh;
+  }
   a:hover {
     opacity: 0.4;
     text-decoration: none;
@@ -57,9 +63,11 @@
   }
 
   p {
-  font-size: 14px;
+  font-size: 2vh;
   opacity: 0.7;
   font-weight: lighter;
+  color: $black;
+  font: $body-font;
   }
 
 }
@@ -71,15 +79,21 @@
 .card-price {
   h2{
     font-size: 20px;
-    color: $blue;
+    color: $light-pink;
   }
   p {
     font-size: 10px;
     opacity: 0.7;
     font-weight: lighter;
      line-height: 2vh;
-     color: $blue;
+     color: $black;
   }
+  a {
+    color: $pink;
+    font: $body-font;
+    font-size: 3vh;
+  }
+
   a:hover {
     opacity: 0.4;
     text-decoration: none;
