@@ -1,47 +1,123 @@
-<h1><%=current_user.first_name%></h1>
+<h1>Hello <%=current_user.first_name%></h1>
 
-
-<div class="container">
-  <% @my_reservations.each do |booking| %>
-    <div class="product">
-      <div class='product-body'>
-        <p>Your reservations as user</p>
-        <p>Date: </p>
-        <p><%= booking.date %></p>
-        <p>Pool name: </p>
-        <p><%=booking.pool.title%></p>
-        <p>Pool dimensions: </p>
-        <p><%=booking.pool.dimensions%></p>
-        <p>Price: </p>
-        <p><%=booking.pool.price%></p>
-        <p>Address: </p>
-        <p><%=booking.pool.address%></p>
-        <p>The Owner: </p>
-        <p><%=booking.pool.user.first_name+ " " + booking.pool.user.last_name%></p>
+<% @my_reservations.each do |booking| %>
+      <div class ="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>Your reservations as user</p>
+          </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Date: </p>
+          </div>
+          <div class="col-xs-6">
+             <p><%= booking.date %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Pool name: </p>
+          </div>
+          <div class="col-xs-6">
+           <p><%=booking.pool.title%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Pool dimensions: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.pool.dimensions%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Price: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.pool.price%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Address: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.pool.address%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>The Owner: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.pool.user.first_name+ " " + booking.pool.user.last_name%></p>
+          </div>
+        </div>
       </div>
-    </div>
   <% end %>
 
-  <% @reservations.each do |booking| %>
-    <div class="product">
-      <div class='product-body'>
-        <p>You reservation as owner </p>
-        <p>Date:</p>
-        <p><%= booking.date %></p>
-        <p>Pool name:</p>
-        <p><%=booking.pool.title%></p>
-        <p>Pool dimensions:</p>
-        <p><%=booking.pool.dimensions%></p>
-        <p>Price:</p>
-        <p><%=booking.pool.price%></p>
-        <p>Address:</p>
-        <p><%=booking.pool.address%></p>
-        <p>Your Guest: </p>
-        <p><%=booking.user.first_name + " " + booking.user.last_name %></p>
+<% @my_reservations.each do |booking| %>
+      <div class ="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>You reservation as owner </p>
+          </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Date: </p>
+          </div>
+          <div class="col-xs-6">
+             <p><%= booking.date %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Pool name: </p>
+          </div>
+          <div class="col-xs-6">
+           <p><%=booking.pool.title%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Pool dimensions: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.pool.dimensions%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Price: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.pool.price%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Address: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.pool.address%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Your Guest: </p>
+          </div>
+          <div class="col-xs-6">
+            <p><%=booking.user.first_name + " " + booking.user.last_name %></p>
+          </div>
+        </div>
       </div>
-    </div>
   <% end %>
+
   <div class="btn btn-medium">
     <%= link_to 'Back', pools_path %>
   </div>
 </div>
+
+
+
