@@ -12,7 +12,7 @@ function autocomplete() {
       });
     }
     if (poolAddressSearch) {
-      var autocomplete = new google.maps.places.Autocomplete(poolAddress, { types: [ 'geocode' ] });
+      var autocomplete = new google.maps.places.Autocomplete(poolAddressSearch, { types: [ 'geocode' ] });
         }
       });
     }
