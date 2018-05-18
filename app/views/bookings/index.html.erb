@@ -1,4 +1,4 @@
-<h1>Pages#index de booking</h1>
+<h1><%=current_user.first_name%></h1>
 
 
 <div class="container">
@@ -6,11 +6,11 @@
   <% @bookings.each do |booking| %>
     <div class="product">
         <div class='product-body'>
-          <h3><%= link_to booking.pool_id, flat_path(booking.pool_id) %></h3>
-          <p><%= @pool.title %></p>
+          <p><%= booking %></p>
           <p><%= booking.date %></p>
-          <p>Booking status : <%= booking.status%> at <%= booking.user.last_name %></p>
-        </div>
-      </div>
-  <% end %>
+          <p><%=booking.pool_id %></p>
+           <p><%=booking.user_id %></p>
+    </div>
+  </div>
+    <% end %>
 </div>
