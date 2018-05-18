@@ -16,9 +16,11 @@
   border-color: #999999;
   border-radius: 50px;
 }
-.my-label {
-  color: #999999;
+.label {
+  color: $light-pink;
   border-color: #999999;
   border-radius: 50px;
-
+}
+.container {
+  border-color: black;
 }
