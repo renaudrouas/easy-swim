@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-
+before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     #@pool = Pool.find(params[:pool_id])
@@ -13,6 +13,12 @@ class BookingsController < ApplicationController
       @bookings = Booking.where(user_id: current_user)
     # end
     #raise
+    @bookings = policy_scope(Booking)
+    if user_signed_in?
+      @bookings = current_user.bookings
+    else
+      redirect_to user_session_path
+    end
 
   #Booking.joins(:users).where("posts.created_at < ?", Time.now)
 
@@ -45,8 +51,10 @@ class BookingsController < ApplicationController
     if user_signed_in?
       @pool = Pool.find(params[:pool_id])
       @booking = Booking.new(booking_params)
+      authorize @booking
       @booking.pool = @pool
       @booking.user = current_user
+
     # @booking.status = "Pending"
     if @booking.save
       redirect_to pool_bookings_path
@@ -60,6 +68,12 @@ class BookingsController < ApplicationController
 end
 
 private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_booking
+      authorize @booking
+    end
+
 
 def booking_params
   params.require(:booking).permit(:date)

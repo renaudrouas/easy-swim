@@ -1,11 +1,11 @@
 class PoolsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index,]
   before_action :set_pool, only: [:show, :edit, :update, :destroy]
 
   # GET /restaurants
   def index
     # # @restaurants = Restaurant.all
-    # @restaurants = policy_scope(Restaurant)
+    @pools = policy_scope(Pool)
 
     if params[:query].present?
       @pools = Pool.search_by_address(params[:query])
@@ -37,18 +37,19 @@ class PoolsController < ApplicationController
   # GET /restaurants/new
   def new
     @pool = Pool.new
-    # authorize @pool
+    authorize @pool
   end
 
   # GET /restaurants/1/edit
   def edit
+    authorize @pool
   end
 
   # POST /restaurants
   def create
     @pool = Pool.new(pool_params)
     @pool.user = current_user
-    # authorize @pool
+    authorize @pool
 
     if @pool.save
       redirect_to @pool, notice: 'Pool was successfully created.'
@@ -76,7 +77,7 @@ class PoolsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pool
       @pool = Pool.find(params[:id])
-      # authorize @pool
+      authorize @pool
     end
 
     # Only allow a trusted parameter "white list" through.
