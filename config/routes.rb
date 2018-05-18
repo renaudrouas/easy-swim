@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :pools do
-    resources :bookings, except: [:edit, :update, :show, :new]
-end
+    resources :bookings, except: [:index, :edit, :update, :show, :new]
+  end
+  resources :bookings, only: [:index]
   devise_for :users
 
   root to: 'pages#home'
