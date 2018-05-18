@@ -1,10 +1,18 @@
+.btn {
+  &:hover {
+    transform: scale(1.01);
+    // zoom: 1.1;
+  }
+}
+
 .my-stylish-button {
-  color: #999999;
-  border: 1px solid #999999;
+  color: $light-pink;
+  border: 1px solid $light-pink;
   padding: 15px 25px;
   border-radius: 50px;
   margin-bottom: 20px;
-}
+    // zoom: 1.1;
+  }
 // .btn-medium:hover {
 //   opacity: 1;
 //   text-decoration: none;
@@ -12,7 +20,7 @@
 // }
 
 .btn.btn-medium a {
-  color: #999999;
+  color: $light-pink;
   &:hover {
     color: black;
     text-decoration: none;

@@ -29,7 +29,7 @@
 
 .card-container-index {
   background-color: white;
-  border-radius: 20px;
+  border-radius: 0px;
   overflow: hidden;
   margin: 15px;
   &:hover {
@@ -53,7 +53,7 @@
   }
   h2 {
   font-size: 20px;
-  color: #3498db;
+  color: $light-pink;
   }
 
   p {
@@ -71,16 +71,18 @@
 .card-price {
   h2{
     font-size: 20px;
-    color: #3498db;
+    color: $blue;
   }
   p {
     font-size: 10px;
     opacity: 0.7;
     font-weight: lighter;
      line-height: 2vh;
+     color: $blue;
   }
   a:hover {
     opacity: 0.4;
     text-decoration: none;
+    color: $blue;
   }
 }
