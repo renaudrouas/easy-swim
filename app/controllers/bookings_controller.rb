@@ -10,42 +10,41 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
     #   @bookings = Booking.find(pool_id: @pool_id)
     #   end
     # else
-      @bookings = Booking.where(user_id: current_user)
+
+    # -------------------------------------------------------------------------
+    #   @bookings = Booking.where(user_id: current_user)
+    # # end
+    # #raise
+    # @bookings = policy_scope(Booking)
+    # if user_signed_in?
+    #   @bookings = current_user.bookings
+    # else
+    #   redirect_to user_session_path
     # end
-    #raise
-    @bookings = policy_scope(Booking)
-    if user_signed_in?
-      @bookings = current_user.bookings
-    else
-      redirect_to user_session_path
-    end
+    # -------------------------------------------------------------------------
 
   #Booking.joins(:users).where("posts.created_at < ?", Time.now)
 
   end
 
+if params[:query].present?
+      @pools = policy_scope(Pool.search_by_title_and_address(params[:query]))
 
-  # def confirm_status
-  #   @booking = Booking.find(params[:booking_id])
-  #   @booking.update(status: "Confirmed")
-  #   if @booking.save
-  #     redirect_to my_properties_path
-  #   else
-  #     flash[:alert] = "Could not confirm"
-  #     render my_properties_path
-  #   end
-  # end
+      @pools_geo = @pools.where.not(latitude: nil, longitude: nil)
+    else
+      @pools = policy_scope(Pool)
+    # raise
+    @pools_geo = Pool.where.not(latitude: nil, longitude: nil)
+    end
 
-  # def decline_status
-  #   @booking = Booking.find(params[:booking_id])
-  #   @booking.update(status: "Declined")
-  #   if @booking.save
-  #     redirect_to my_properties_path
-  #   else
-  #     flash[:alert] = "Could not confirm"
-  #     render my_properties_path
-  #   end
-  # end
+    @markers = @pools_geo.map do |pool|
+     {
+       lat: pool.latitude,
+             lng: pool.longitude#,
+             # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+           }
+         end
+  end
 
   def create
     if user_signed_in?
