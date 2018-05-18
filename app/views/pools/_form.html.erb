@@ -4,7 +4,7 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs form-color">
-      <%= f.input :title, placeholder: 'Pool Title', hint: 'No special characters.',input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :title, placeholder: 'Pool Title', hint: 'No special characters.',input_html: { class: 'my-input' }, label_html: { class: 'label' } %>
       <%= f.input :address, placeholder: 'Pool Address', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' }%>
       <%= f.input :dimensions, placeholder: 'Pool dimensions', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :description, placeholder: 'Pool description', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
