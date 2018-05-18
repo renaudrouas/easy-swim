@@ -4,11 +4,11 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs form-color">
-      <%= f.input :title, placeholder: 'Pool Title', hint: 'No special characters.',input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :address, placeholder: 'Pool Address', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' }%>
-      <%= f.input :dimensions, placeholder: 'Pool dimensions', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :description, placeholder: 'Pool description', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :price, placeholder: 'Pool price', hint: 'No special characters.', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :title, placeholder: 'La plus belle piscine de Marseille', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :address, placeholder: '167 rue paradis, Marseille', input_html: { class: 'my-input' }, label_html: { class: 'my-label' }%>
+      <%= f.input :dimensions, placeholder: '12x12', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :description, placeholder: 'Jolie piscine creusée dans le centre de Marseille', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :price, placeholder: '12', hint: 'Pas besoin du signe €', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
     </div>
