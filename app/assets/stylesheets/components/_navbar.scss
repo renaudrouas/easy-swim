@@ -3,7 +3,7 @@
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: $blue;
   transition: all 0.3s ease;
-  height: 10.2em;
+  height: 8.2em;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -19,13 +19,13 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 100px;
+  height: 80px;
 }
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 6.2em;
-  width: 6.2em;
+  height: 4.2em;
+  width: 4.2em;
   border-radius: 50%;
 }
 
@@ -44,11 +44,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: $light-pink;
-  font-size: 17px;
+  color: rgba(0,0,0,0.3);
+  font-size: 15px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #495d63;
   text-decoration: none;
 }
 
