@@ -25,7 +25,7 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   #Booking.joins(:users).where("posts.created_at < ?", Time.now)
 
-  end
+
 
 if params[:query].present?
       @pools = policy_scope(Pool.search_by_title_and_address(params[:query]))
