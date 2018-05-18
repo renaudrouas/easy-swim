@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2018_05_17_204050) do
     t.bigint "user_id"
     t.string "title"
     t.string "address"
+    t.string "photo"
     t.float "latitude"
     t.float "longitude"
-    t.string "photo"
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
