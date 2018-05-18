@@ -5,23 +5,23 @@ class PoolsController < ApplicationController
   # GET /restaurants
   def index
     if params[:query].present?
-      @pools = Pool.search_by_address(params[:query])
+      @pools = policy_scope(Pool.search_by_title_and_address_and_description(params[:query]))
+      # @lands_geo = Land.search_by_title_and_address(params[:query]).where.not(latitude: nil, longitude: nil)
+      @pools_geo = @pools.where.not(latitude: nil, longitude: nil)
     else
-      @pools = Pool.all
+      @pools = policy_scope(Pool)
+    # raise
+    @pools_geo = Pool.where.not(latitude: nil, longitude: nil)
     end
 
-    @pools = @pools.where.not(latitude: nil, longitude: nil)
-    @pools = policy_scope(@pools)
-    @markers = @pools.map do |pool|
-      {
-        lat: pool.latitude,
-        lng: pool.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
-    end
+    @markers = @pools_geo.map do |pool|
+     {
+       lat: pool.latitude,
+             lng: pool.longitude#,
+             # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+           }
+         end
   end
-
-
   # GET /restaurants/1
   def show
     @markers = [{

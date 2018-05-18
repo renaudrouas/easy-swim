@@ -6,7 +6,7 @@
       <%= form_tag pools_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control", id: "pool_address_search",
         placeholder: "Find a pool"
         %>
         <% end %>
